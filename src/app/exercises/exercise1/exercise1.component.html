@@ -19,4 +19,50 @@
 </pre>
 <!--Do Not touch the code above this line!-->
 <hr/>
-<span>hi</span>
+<span
+  >YOUR CODE HERE!
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <div>
+        <label>User name:</label><br />
+        <input type="text" formControlName="username" />
+      </div>
+      <div *ngIf="f['username'].errors && f['username'].errors['required']">
+        User name is required
+      </div>
+    </div>
+    <div>
+      <div>
+        <label>Email:</label><br />
+        <input type="text" formControlName="email" />
+      </div>
+      <div *ngIf="f['email'].errors">
+        <div *ngIf="f['email'].errors['required']">Email is required</div>
+        <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <label>Password:</label><br />
+        <input type="password" formControlName="password" />
+      </div>
+      <div *ngIf="f['password'].errors">
+        <div *ngIf="f['password'].errors['required']">Password is required</div>
+        <div *ngIf="f['password'].errors['minlength']">
+          Username must be at least 4 characters
+        </div>
+        <div *ngIf="f['password'].errors['maxlength']">
+          Username must not exceed 10 characters
+        </div>
+        <div *ngIf="f['password'].errors['specialChars']">
+          ATleast one special character should be present
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="!form.valid">Register</button>
+    </div>
+  </form>
+</span>
+
