@@ -1,0 +1,8 @@
+<p>Inside parent component</p>
+<label>Enter text in Parent Component</label>
+<input #parent type="text"  />
+<button (click)="onClick(parent.value)">Submit</button>
+
+<div class="child">
+  <app-child [dataFromParent]="parentTxt"></app-child>
+</div>
